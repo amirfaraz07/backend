@@ -1,0 +1,15 @@
+{
+  "name": "advancing-in-backend",
+  "version": "1.0.0",
+  "description": "backend advance level project ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "backend"
+  ],
+  "author": "Muhammad Faraz",
+  "license": "ISC"
+}
