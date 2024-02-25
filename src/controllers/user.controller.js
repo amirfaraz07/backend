@@ -16,7 +16,7 @@ const registerUser = asyncHandler( async (req, res) => {
     // return registered
 
     const { fullName, email, username, password } = req.body // it can be used to handle any data but not file handling for file handling we will go to multer which we declared in utils and use that in user.routes.js as a middleware
-    console.log("email: ", email);
+    // console.log("email: ", email);
 
     // if ( fullName == "" ) {
     //     throw new ApiError(400, "Full Name is required")
@@ -44,13 +44,17 @@ const registerUser = asyncHandler( async (req, res) => {
     }
 
     const avatar = await uploadOnCloudinary(avatarLocalPath)
+    // console.log(avatar.status);
+    // console.log(avatar.links);
+    // console.log("🚀 ~ registerUser ~ avatar:", avatar)
     const coverImage = await uploadOnCloudinary(coverImageLocalPath)
-
+    // console.log("🚀 ~ registerUser ~ coverImage:", coverImage)
     if (!avatar) {
-        throw new ApiError(400, "Avatar file is required")
+        throw new ApiError(400, "Avatar file is required..?")
     }
 
     const user = await User.create({
+        fullName,
         avatar: avatar.url,
         coverImage: coverImage?.url || "",
         email,
